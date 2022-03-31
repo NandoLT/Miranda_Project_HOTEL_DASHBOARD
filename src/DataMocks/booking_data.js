@@ -1,0 +1,141 @@
+export const booking_data = [{
+  "Guest_id": "Antonius",
+  "Order_Date": "1/31/2022",
+  "Check_In": "5/4/2021",
+  "Check_Out": "6/13/2021",
+  "Room_Type": "300M",
+  "Status": "M"
+}, {
+  "Guest_id": "Launce",
+  "Order_Date": "8/7/2021",
+  "Check_In": "9/18/2021",
+  "Check_Out": "2/17/2022",
+  "Room_Type": "Accent",
+  "Status": "M"
+}, {
+  "Guest_id": "Adair",
+  "Order_Date": "4/18/2021",
+  "Check_In": "11/6/2021",
+  "Check_Out": "8/29/2021",
+  "Room_Type": "FJ Cruiser",
+  "Status": "M"
+}, {
+  "Guest_id": "Dar",
+  "Order_Date": "2/16/2022",
+  "Check_In": "4/28/2021",
+  "Check_Out": "7/10/2021",
+  "Room_Type": "Swift",
+  "Status": "M"
+}, {
+  "Guest_id": "Herculie",
+  "Order_Date": "2/2/2022",
+  "Check_In": "4/3/2021",
+  "Check_Out": "3/18/2022",
+  "Room_Type": "Alliance",
+  "Status": "M"
+}, {
+  "Guest_id": "Sigismund",
+  "Order_Date": "3/28/2021",
+  "Check_In": "7/20/2021",
+  "Check_Out": "11/5/2021",
+  "Room_Type": "4Runner",
+  "Status": "M"
+}, {
+  "Guest_id": "Kennett",
+  "Order_Date": "9/17/2021",
+  "Check_In": "6/20/2021",
+  "Check_Out": "8/15/2021",
+  "Room_Type": "Continental",
+  "Status": "M"
+}, {
+  "Guest_id": "Collin",
+  "Order_Date": "10/18/2021",
+  "Check_In": "8/28/2021",
+  "Check_Out": "2/22/2022",
+  "Room_Type": "CX-9",
+  "Status": "M"
+}, {
+  "Guest_id": "Cece",
+  "Order_Date": "6/19/2021",
+  "Check_In": "3/30/2021",
+  "Check_Out": "9/2/2021",
+  "Room_Type": "Express 1500",
+  "Status": "M"
+}, {
+  "Guest_id": "Andromache",
+  "Order_Date": "9/24/2021",
+  "Check_In": "9/16/2021",
+  "Check_Out": "6/26/2021",
+  "Room_Type": "Econoline E350",
+  "Status": "F"
+}, {
+  "Guest_id": "Jakie",
+  "Order_Date": "12/13/2021",
+  "Check_In": "3/28/2021",
+  "Check_Out": "3/21/2022",
+  "Room_Type": "Ranger",
+  "Status": "M"
+}, {
+  "Guest_id": "Woodman",
+  "Order_Date": "9/24/2021",
+  "Check_In": "4/27/2021",
+  "Check_Out": "8/23/2021",
+  "Room_Type": "G-Class",
+  "Status": "M"
+}, {
+  "Guest_id": "Jeramey",
+  "Order_Date": "8/14/2021",
+  "Check_In": "11/17/2021",
+  "Check_Out": "3/3/2022",
+  "Room_Type": "Cirrus",
+  "Status": "M"
+}, {
+  "Guest_id": "Worthy",
+  "Order_Date": "11/28/2021",
+  "Check_In": "9/12/2021",
+  "Check_Out": "11/20/2021",
+  "Room_Type": "Tucson",
+  "Status": "M"
+}, {
+  "Guest_id": "Hilliard",
+  "Order_Date": "8/28/2021",
+  "Check_In": "12/4/2021",
+  "Check_Out": "7/23/2021",
+  "Room_Type": "X6 M",
+  "Status": "M"
+}, {
+  "Guest_id": "Peder",
+  "Order_Date": "1/8/2022",
+  "Check_In": "4/8/2021",
+  "Check_Out": "3/5/2022",
+  "Room_Type": "Ram Wagon B350",
+  "Status": "M"
+}, {
+  "Guest_id": "Maximo",
+  "Order_Date": "8/2/2021",
+  "Check_In": "5/13/2021",
+  "Check_Out": "4/8/2021",
+  "Room_Type": "XT",
+  "Status": "M"
+}, {
+  "Guest_id": "Kelsey",
+  "Order_Date": "8/26/2021",
+  "Check_In": "1/27/2022",
+  "Check_Out": "12/27/2021",
+  "Room_Type": "RX-7",
+  "Status": "F"
+}, {
+  "Guest_id": "Milissent",
+  "Order_Date": "11/23/2021",
+  "Check_In": "10/16/2021",
+  "Check_Out": "12/15/2021",
+  "Room_Type": "9-7X",
+  "Status": "F"
+}, {
+  "Guest_id": "Murdock",
+  "Order_Date": "5/27/2021",
+  "Check_In": "8/31/2021",
+  "Check_Out": "9/23/2021",
+  "Room_Type": "Insight",
+  "Status": "M"
+}]

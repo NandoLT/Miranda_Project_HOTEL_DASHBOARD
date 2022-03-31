@@ -1,0 +1,23 @@
+.header {
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid rgba(158, 158, 158, 0.6);
+}
+
+.header-logo {
+    margin-left: 20px;
+}
+.header-logo img {
+    max-width: 100px;
+}
+
+.header-nav {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.header-button {
+    width: 144px;
+    margin-left: 10px;
+}
