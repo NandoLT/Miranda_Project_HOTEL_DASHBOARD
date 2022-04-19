@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button';
 import miranda_logo from '../../../assets/images/travl_icon.PNG';
 import AuthButton from '../AuthButton';
+import { authContext } from '../../../contexts/user.context';
 
 import '../../../assets/css/Header.css';
 
 // const Header = ({ className, isLogged, onLogout, ...props }) => {
-const Header = ({ className, isLogged, onLogOut,...props }) => {
-    console.log('HEADER', onLogOut, isLogged)
+const Header = ({ className, isLogged, onLogOut, dispatch, ...props }) => {
+    // console.log('HEADER', onLogOut, isLogged);
+
+    const authData = useContext(authContext);
+
+    console.log('AUTHDATA OK', authData);
+      
     return (
         <header className={classNames('header', className)} {...props}>
             <Link to="/">
@@ -20,6 +26,13 @@ const Header = ({ className, isLogged, onLogOut,...props }) => {
             <nav className="header-nav">
                 {isLogged ? 
                 <>
+                    {
+                        authData.auth ?
+                        <h4>
+                            { authData.name} is logged!
+                        </h4> :
+                        authData.name
+                    }
                     <Button
                     as={Link}
                     to="/booking"
@@ -87,6 +100,13 @@ const Header = ({ className, isLogged, onLogOut,...props }) => {
                 >
                     Contact
                 </Button> */}
+                    {
+                        authData.auth ?
+                        <h4>
+                            { authData.name} is logged!
+                        </h4> :
+                        authData.name
+                    }
             <AuthButton
                 className="header-button"
                 isLogged={isLogged}

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { LoginForm } from './LoginForm';
 import { useNavigate } from 'react-router-dom';
 import storage from '../../utils/storage';
+import { UPDATE_AUTH, UPDATE_EMAIL, UPDATE_NAME } from '../../useReducer/authActionsTypes'
 // import {login} from '../../../dataService/auth';
 // import Loader from '../commons/Loader';
 
 import '../../assets/css/Login.css';
 
-export const Login = ({isLogged})  => {
+export const Login = ({ isLogged, dispatch })  => {
     let navigate = useNavigate()
     const [error, setError] = useState(null);
     // const [isLoading, setIsLoading] = React.useState(false);
@@ -29,18 +30,27 @@ export const Login = ({isLogged})  => {
         // }finally{
         //     setIsLoading(false);
         // }
-        console.log(credentials.email, credentials.password);
+        // console.log(credentials.email, credentials.password);
         if((credentials.email !== 'fernando.lopez.dev@hotmail.com') || (credentials.password !== '123456')) {
             setError('Invalid Credentials');
+            dispatch({type: UPDATE_AUTH, value: false});
         } else {
+
+            dispatch({type: UPDATE_NAME, value: 'NandoLT'});
+            dispatch({type: UPDATE_EMAIL, value: 'fernando.lopez.dev@hotmail.com'});
+            dispatch({type: UPDATE_AUTH, value: true});
+
             storage.set('auth', true);
         }
+
         if(remember){
             for(const credential in credentials) {
-                storage.set(credential, credentials[credential]);
+                credential === 'email' && storage.set(credential, credentials[credential]);
             }
+            storage.set('name', 'NandoLT');
         }
         window.location.reload(true);
+        // navigate('/');
     }
     return (
         <>
