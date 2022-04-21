@@ -35,7 +35,7 @@ export const Login = ({ isLogged, dispatch })  => {
             setError('Invalid Credentials');
             dispatch({type: UPDATE_AUTH, value: false});
         } else {
-
+            
             dispatch({type: UPDATE_NAME, value: 'NandoLT'});
             dispatch({type: UPDATE_EMAIL, value: 'fernando.lopez.dev@hotmail.com'});
             dispatch({type: UPDATE_AUTH, value: true});
