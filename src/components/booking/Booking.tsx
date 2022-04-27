@@ -19,7 +19,7 @@ export const Booking = () => {
                 </tr>
                 {booking_data.map(booking => {
                     return (
-                        <tr key={booking.Guest_id + Booking.Room_Type}>
+                        <tr key={booking.Guest_id + booking.Room_Type}>
                             <td>{booking.Guest_id}</td>
                             <td>{booking.Order_Date}</td>
                             <td>{booking.Check_In}</td>

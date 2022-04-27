@@ -18,10 +18,14 @@ import { authReducer, initialState } from '../useReducer/authReducer';
 
 import '../assets/css/App.css';
 
-function App({ isLogged }) {
+interface AppProps {
+  isLogged: boolean
+}
+// function App({ isLogged  }) {
+const  App:React.FC<AppProps> = ({ isLogged  }) => {
 
   const [logged, setLogged] = useState(isLogged);
-   
+
   const [state, dispatch] = useReducer(authReducer, initialState)
 
   const onLogOut = () => {
