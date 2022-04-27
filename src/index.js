@@ -20,9 +20,9 @@ const accessGranted = storage.get('auth');
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Router>
         <App isLogged={ !!accessGranted } />
     </Router>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
