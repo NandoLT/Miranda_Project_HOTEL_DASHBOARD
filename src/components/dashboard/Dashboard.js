@@ -14,7 +14,7 @@ export const Dashboard = () => {
     return (
         <>
             <h1> DASHBOARD COMPONENT</h1>
-            <BarChart data = {state.data} width={state.width} height={state.height} />
+            {/* <BarChart data = {state.data} width={state.width} height={state.height} /> */}
             <BarChartBeta />
         </>
     )
