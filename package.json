@@ -2,7 +2,7 @@
   "name": "miranda-dashboard",
   "version": "0.1.0",
   "private": true,
-  "hoomepage": "https://nandolt.github.io/Miranda_Project_HOTEL_DASHBOARD",
+  "homepage": "https://nandolt.github.io/Miranda_Project_HOTEL_DASHBOARD",
   "babel": {
     "presets": [
       "@babel/react",
