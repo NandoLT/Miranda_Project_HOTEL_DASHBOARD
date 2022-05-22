@@ -27,7 +27,7 @@ const root = ReactDOM.createRoot(container);
 
 root.render(
   // <React.StrictMode>
-    <Router>
+    <Router basename="/miranda_dashboard">
         <App isLogged={ !!accessGranted } />
     </Router>
   // </React.StrictMode>
