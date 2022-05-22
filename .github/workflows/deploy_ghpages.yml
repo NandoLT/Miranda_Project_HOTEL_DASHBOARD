@@ -1,0 +1,32 @@
+name: Deployment project to github pages
+
+on: 
+  push: 
+    branches: 
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-dep: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Dependencies
+        run: npm ci
+      - name: Unit Test
+        run: npm run test
+      - name: e2e Test
+        run: npm run cypress:open
+      - name: Build and deploy gh-pages
+        run: |
+          git config --global user.name "NandoLT"
+          git config --global user.email "fernando_lt@hotmail.es"
+          git remote set-url origin  https://x-acces-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          npm run deploy
+        
+
+      
