@@ -17,7 +17,7 @@ export const Login = ({ isLogged, dispatch })  => {
         if(isLogged) {
             navigate('/');
         }
-    }, [])
+    }, [isLogged])
 
     const handleSubmit = async (credentials, remember) => {
         setError(null);
@@ -41,16 +41,18 @@ export const Login = ({ isLogged, dispatch })  => {
             dispatch({type: UPDATE_AUTH, value: true});
 
             storage.set('auth', true);
-        }
-
-        if(remember){
             for(const credential in credentials) {
                 credential === 'email' && storage.set(credential, credentials[credential]);
             }
             storage.set('name', 'NandoLT');
         }
-        // window.location.reload(true);
-        navigate('/');
+
+        window.location.reload(true);
+        // console.log('LOCATION', window.location)
+        // console.log('PATHNAME', window.location.pathname)
+        // console.log('ORIGIN', window.location.origin)
+        // console.log('COMPLETE', window.location.origin)
+        // navigate('/');
     }
     return (
         <>

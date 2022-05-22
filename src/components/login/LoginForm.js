@@ -73,13 +73,13 @@ export const LoginForm = ({onSubmit}) => {
             >
             Log in
             </Button>
-            <FormField
+            {/* <FormField
                 type="checkbox"
                 name="remember"
                 label="Remember Me"
                 className="loginForm-remember"
                 onChange={handleRemember}
-            />
+            /> */}
         </form>
     );
 }

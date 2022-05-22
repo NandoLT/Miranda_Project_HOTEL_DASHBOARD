@@ -7,7 +7,6 @@ import { Button } from './Button';
 const AuthButton = ({ className, isLogged, onLogout}) => {
 
     const handleLogout = () => {
-        console.log('Enter logout')
         onLogout();
     };
 

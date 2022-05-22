@@ -21,11 +21,12 @@ import '../assets/css/App.css';
 function App({ isLogged }) {
 
   const [logged, setLogged] = useState(isLogged);
-   
+
   const [state, dispatch] = useReducer(authReducer, initialState)
 
   const onLogOut = () => {
-    storage.set('auth', false);
+    // storage.set('auth', false);
+    storage.clear()
     setLogged(!logged);
   }
   console.log('APP STATE', state);
@@ -52,7 +53,7 @@ function App({ isLogged }) {
               
               <Route 
                 path="/rooms" 
-                element={ <Rooms /> } 
+                element={ <PrivateRoute isLogged={ logged } component={ Rooms } /> } 
               />
               <Route 
                 path="/rooms/:id" 
