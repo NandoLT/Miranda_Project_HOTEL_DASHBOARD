@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App';
-import { BrowserRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import storage from './utils/storage';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
