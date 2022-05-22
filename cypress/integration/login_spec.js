@@ -1,3 +1,5 @@
+/* global cy */
+
 describe('My First Test', () => {
     
     it('Testing acces login to get dashboard acces', () => {
