@@ -39,7 +39,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "start-test": "SET NODE_ENV=test node ./src/app/App.js"
+    "start-test": "SET NODE_ENV=test node ./src/app/App.js",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
