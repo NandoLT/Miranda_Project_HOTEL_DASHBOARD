@@ -20,7 +20,11 @@ jobs:
       - name: Unit Test
         run: npm run test
       - name: e2e Test
-        run: npm run cypress:open
+        uses: cypress-io/github-actions@v2
+        with:
+          command: npm run cypress:open
+          start: npm run start:test
+          wait-on: https://localhost:3000
       - name: Build and deploy gh-pages
         run: |
           git config --global user.name "NandoLT"
