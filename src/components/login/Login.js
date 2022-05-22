@@ -49,8 +49,8 @@ export const Login = ({ isLogged, dispatch })  => {
             }
             storage.set('name', 'NandoLT');
         }
-        window.location.reload(true);
-        // navigate('/');
+        // window.location.reload(true);
+        navigate('/');
     }
     return (
         <>
