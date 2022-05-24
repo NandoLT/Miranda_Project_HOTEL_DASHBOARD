@@ -13,11 +13,12 @@ const userPassword = '';
 // const userPassword = 123456;
 
 export const LoginForm = ({onSubmit}) => {
+
     const [credentials, setCredentials] = useState({
         email:'',
         password:''
     });
-    const [remember, setRemember] = useState(false)
+    const [remember, setRemember] = useState(true)
 
     useEffect(() => {     
         if(userEmail && userPassword) {
@@ -35,16 +36,17 @@ export const LoginForm = ({onSubmit}) => {
         }));
     };
 
-    const handleRemember = () => {
-        setRemember(!remember);
-    }
+    // const handleRemember = () => {
+    //     setRemember(!remember);
+    // }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit(credentials, remember);
+        onSubmit(credentials);
     }
 
-    const {email, password} = credentials
+    const {email, password} = credentials;
+
     return (
         <form className="loginForm" onSubmit={handleSubmit}>
             <FormField

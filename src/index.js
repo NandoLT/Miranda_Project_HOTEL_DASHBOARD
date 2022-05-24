@@ -2,15 +2,14 @@ import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App';
 // import { BrowserRouter as Router } from 'react-router-dom';
-import { HashRouter as Router } from 'react-router-dom';
-import storage from './utils/storage';
+import { HashRouter as Router } from 'react-router-dom'; //Use HashRouter to can deploy in gh pages
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 
 
 import './assets/css/index.css';
 
-const accessGranted = storage.get('auth');
+
 
 // ReactDOM.createRoot(
 //   <React.StrictMode>
@@ -31,7 +30,7 @@ root.render(
     // <Router basename="/miranda_dashboard">
     <Router>
     {/* <Router> */}
-        <App isLogged={ !!accessGranted } />
+        <App />
     </Router>
   // </React.StrictMode>
 

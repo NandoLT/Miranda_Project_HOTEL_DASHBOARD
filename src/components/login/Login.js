@@ -3,70 +3,79 @@ import { LoginForm } from './LoginForm';
 import { useNavigate } from 'react-router-dom';
 import storage from '../../utils/storage';
 import { UPDATE_AUTH, UPDATE_EMAIL, UPDATE_NAME } from '../../useReducer/authActionsTypes'
-// import {login} from '../../../dataService/auth';
-// import Loader from '../commons/Loader';
+import { login } from '../../dataService/auth/auth';
+import { toast } from 'react-toastify';
+import { configureClient } from "../../dataService/client";
+import parseAuthToken from '../../utils/parseToken';
 
 import '../../assets/css/Login.css';
 
 export const Login = ({ isLogged, dispatch })  => {
-    let navigate = useNavigate()
-    const [error, setError] = useState(null);
-    // const [isLoading, setIsLoading] = React.useState(false);
+
+    let navigate = useNavigate();
+
+    // const [error, setError] = useState(null);
+
+    const launchToast = (error) => {
+        console.log('TOAST');
+        toast.error(`${error}`, {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            progress: undefined,
+        }); 
+    }
 
     useEffect(() => {
         if(isLogged) {
             navigate('/');
         }
-    }, [isLogged])
+    }, [isLogged, navigate])
 
-    const handleSubmit = async (credentials, remember) => {
-        setError(null);
-        // setIsLoading(true);
-        // try {
-        //     await login(credentials, remember);
-        //     isLogged.current = true;
-        // } catch (error) {
-        //     setError(error);
-        // }finally{
-        //     setIsLoading(false);
-        // }
-        // console.log(credentials.email, credentials.password);
-        if((credentials.email !== 'fernando.lopez.dev@hotmail.com') || (credentials.password !== '123456')) {
-            setError('Invalid Credentials');
-            dispatch({type: UPDATE_AUTH, value: false});
-        } else {
-            
-            dispatch({type: UPDATE_NAME, value: 'NandoLT'});
-            dispatch({type: UPDATE_EMAIL, value: 'fernando.lopez.dev@hotmail.com'});
+    const handleSubmit = async (credentials) => {
+        // setError(null);
+        try {
+
+            const { data } = await login(credentials);
+            configureClient(data.token);
+
+            storage.set('authToken', data.token, true);
+
             dispatch({type: UPDATE_AUTH, value: true});
-
             storage.set('auth', true);
-            for(const credential in credentials) {
-                credential === 'email' && storage.set(credential, credentials[credential]);
-            }
-            storage.set('name', 'NandoLT');
+
+            parseAuthToken();
+            // window.location.reload(true);
+        }catch (error) {
+            // setError(error);
+            launchToast(error.error);
         }
 
-        window.location.reload(true);
-        // console.log('LOCATION', window.location)
-        // console.log('PATHNAME', window.location.pathname)
-        // console.log('ORIGIN', window.location.origin)
-        // console.log('COMPLETE', window.location.origin)
-        // navigate('/');
     }
+
+        // if((credentials.email !== 'fernando.lopez.dev@hotmail.com') || (credentials.password !== '123456')) {
+        //     setError('Invalid Credentials');
+        //     dispatch({type: UPDATE_AUTH, value: false});
+        // } else {
+            
+        //     dispatch({type: UPDATE_NAME, value: 'NandoLT'});
+        //     dispatch({type: UPDATE_EMAIL, value: 'fernando.lopez.dev@hotmail.com'});
+        //     dispatch({type: UPDATE_AUTH, value: true});
+
+        //     for(const credential in credentials) {
+        //         credential === 'email' && storage.set(credential, credentials[credential]);
+        //     }
+        //     storage.set('name', 'NandoLT');
+        // }
+
+    
     return (
         <>
-            {/* { isLoading && <Loader />} */}
             <div className="loginPage">
                 <h1 className="loginPage-title">Miranda Dashboard Login</h1>
-                {/* <LoginForm onSubmit={handleSubmit} isLoading={isLoading}/> */}
                 <LoginForm onSubmit={handleSubmit} />
-                { error && <div className="loginPage-error">
-                    {error}
-                    <h5>Remember:</h5>
-                    <h5>fernando.lopez.dev@hotmail.com</h5>
-                    <h5>123456</h5>
-                    </div>}
             </div>
         </>
     )
