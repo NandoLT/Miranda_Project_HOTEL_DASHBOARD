@@ -14,6 +14,8 @@
     ]
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.11.0",
+    "@fullcalendar/react": "^5.11.1",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
@@ -21,6 +23,8 @@
     "d3": "^7.4.4",
     "gh-pages": "^4.0.0",
     "immutability-helper": "^3.1.1",
+    "install": "^0.13.0",
+    "npm": "^8.11.0",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dnd": "^15.1.1",

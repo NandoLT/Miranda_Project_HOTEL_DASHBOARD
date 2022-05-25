@@ -1,0 +1,10 @@
+.calendar-graphics{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-around;
+}
+.calendar, .barChar {
+    padding: 20px;
+    width: 45%;
+    background-color:white
+}

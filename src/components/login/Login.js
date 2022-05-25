@@ -14,8 +14,6 @@ export const Login = ({ isLogged, dispatch })  => {
 
     let navigate = useNavigate();
 
-    // const [error, setError] = useState(null);
-
     const launchToast = (error) => {
         console.log('TOAST');
         toast.error(`${error}`, {
@@ -35,7 +33,6 @@ export const Login = ({ isLogged, dispatch })  => {
     }, [isLogged, navigate])
 
     const handleSubmit = async (credentials) => {
-        // setError(null);
         try {
 
             const { data } = await login(credentials);
@@ -47,30 +44,12 @@ export const Login = ({ isLogged, dispatch })  => {
             storage.set('auth', true);
 
             parseAuthToken();
-            // window.location.reload(true);
         }catch (error) {
-            // setError(error);
             launchToast(error.error);
         }
 
     }
 
-        // if((credentials.email !== 'fernando.lopez.dev@hotmail.com') || (credentials.password !== '123456')) {
-        //     setError('Invalid Credentials');
-        //     dispatch({type: UPDATE_AUTH, value: false});
-        // } else {
-            
-        //     dispatch({type: UPDATE_NAME, value: 'NandoLT'});
-        //     dispatch({type: UPDATE_EMAIL, value: 'fernando.lopez.dev@hotmail.com'});
-        //     dispatch({type: UPDATE_AUTH, value: true});
-
-        //     for(const credential in credentials) {
-        //         credential === 'email' && storage.set(credential, credentials[credential]);
-        //     }
-        //     storage.set('name', 'NandoLT');
-        // }
-
-    
     return (
         <>
             <div className="loginPage">

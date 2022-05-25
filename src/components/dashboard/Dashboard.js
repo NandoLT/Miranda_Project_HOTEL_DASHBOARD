@@ -1,6 +1,10 @@
 import React from 'react';
-import { BarChart } from '../d3Data/BarChart';
+// import { BarChart } from '../d3Data/BarChart';
 import { BarChartBeta } from '../d3Data/BarChartBeta';
+import { Calendar } from '../fullCalendar/Calendar';
+import { KpisContainer } from './kpisContainer';
+
+import '../../assets/css/calendarGraphics.css';
 
 export const Dashboard = () => {
     
@@ -15,7 +19,15 @@ export const Dashboard = () => {
         <>
             <h1> DASHBOARD COMPONENT</h1>
             {/* <BarChart data = {state.data} width={state.width} height={state.height} /> */}
-            <BarChartBeta />
+            <KpisContainer />
+            <div className="calendar-graphics">
+                <div className="calendar">
+                    <Calendar />
+                </div>
+                <div className="barChar">
+                    <BarChartBeta />
+                </div>
+            </div>
         </>
     )
 }

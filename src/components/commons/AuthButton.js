@@ -2,33 +2,39 @@
 import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
+import { useNavigate } from 'react-router-dom';
 // import { logout } from '../../../dataService/auth';
+import logOutIcon from '../../assets/images/logout.svg'
 
-const AuthButton = ({ className, isLogged, onLogout}) => {
+const AuthButton = ({ className, onLogout, variant}) => {
 
+    const navigate = useNavigate();
+    
     const handleLogout = () => {
         onLogout();
+        // navigate('/login');
     };
 
-    const props = isLogged ?
-        {onClick: handleLogout, children:'Log out'} :
-        {
-            as: Link,
-            to: '/login',
-            children: 'Log in',
-        };
-
-    return <Button className={className} {...props} />;
+    return (
+        <>
+            <Button 
+                as={Link}
+                to="/login"
+                className={className} 
+                onClick={handleLogout} 
+                variant={variant}
+            >
+                <img src={logOutIcon} alt='logout-icon' />
+            </Button>
+        </>
+    )
+    
 };
 
 AuthButton.propTypes = {
     className: T.string,
-    isLogged: T.bool,
     onLogout: T.func.isRequired,
 };
 
-AuthButton.defaultProps = {
-    isLogged: false,
-};
 
 export default AuthButton;

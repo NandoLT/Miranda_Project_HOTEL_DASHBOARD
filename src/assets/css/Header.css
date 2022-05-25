@@ -5,19 +5,56 @@
 }
 
 .header-logo {
+    align-items: center;
     margin-left: 20px;
+    display: flex;
+}
+.link-logo {
+    text-decoration: none;
+}
+.logo-text{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.logo-text h2 {
+    color: #212121;
+    margin-bottom: 0;
+}
+.logo-text h6 {
+    color: #5D5449;
+    margin-top: 0;
 }
 .header-logo img {
-    max-width: 100px;
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
 }
 
 .header-nav {
     display: flex;
-    flex: 1;
+    flex: 1 1;
     justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 50px;
 }
 
 .header-button {
     width: 144px;
-    margin-left: 10px;
+    margin-right: 25px;
+}
+
+span.counter {
+    background: red;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: xx-small;
+    color: white;
+    position: relative;
+    top: -10px;
+    left: -10px;
+    min-width: 10px;
 }
