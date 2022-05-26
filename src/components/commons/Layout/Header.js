@@ -45,7 +45,7 @@ const Header = ({ className, isLogged, onLogOut, dispatch, ...props }) => {
                         className="header-button contact-icon"
                     >
                         <img src={contactIcon} alt='contact-icon' />
-                        <span class="counter">20</span>
+                        <span className="counter">20</span>
                     </Button>
                     <Button
                         as={Link}
@@ -54,7 +54,7 @@ const Header = ({ className, isLogged, onLogOut, dispatch, ...props }) => {
                         className="header-button"
                     >
                         <img src={bookingIcon} alt='contact-icon' />
-                        <span class="counter">5</span>
+                        <span className="counter">5</span>
                     </Button>
                     <AuthButton
                         className="header-button"

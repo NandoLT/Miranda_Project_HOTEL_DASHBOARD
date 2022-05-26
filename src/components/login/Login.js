@@ -5,7 +5,7 @@ import storage from '../../utils/storage';
 import { UPDATE_AUTH, UPDATE_EMAIL, UPDATE_NAME } from '../../useReducer/authActionsTypes'
 import { login } from '../../dataService/auth/auth';
 import { toast } from 'react-toastify';
-import { configureClient } from "../../dataService/client";
+// import { configureClient } from "../../dataService/client";
 import parseAuthToken from '../../utils/parseToken';
 
 import '../../assets/css/Login.css';
@@ -36,7 +36,7 @@ export const Login = ({ isLogged, dispatch })  => {
         try {
 
             const { data } = await login(credentials);
-            configureClient(data.token);
+            // configureClient(data.token);
 
             storage.set('authToken', data.token, true);
 

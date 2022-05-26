@@ -1,6 +1,6 @@
 import client from '../client';
 import storage from '../../utils/storage';
-import { configureClient, resetClient } from "../client";
+import { resetClient } from "../client";
 
 const authPath = 'users'
 

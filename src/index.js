@@ -4,7 +4,7 @@ import App from './app/App';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom'; //Use HashRouter to can deploy in gh pages
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import store from './app/store';
 
 
 import './assets/css/index.css';
@@ -30,7 +30,9 @@ root.render(
     // <Router basename="/miranda_dashboard">
     <Router>
     {/* <Router> */}
-        <App />
+      <Provider store={store}>
+          <App />
+      </Provider>
     </Router>
   // </React.StrictMode>
 

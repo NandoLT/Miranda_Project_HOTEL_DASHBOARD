@@ -1,8 +1,8 @@
 
 import { UPDATE_NAME, UPDATE_EMAIL, UPDATE_AUTH } from './authActionsTypes';
 import storage from '../utils/storage';
-
-const { id, email, photo, name_surname, contact, descriptipn, role, status } = storage.get('userData');
+const empty = '';
+const { id, email, photo, name_surname, contact, descriptipn, role, status } = storage.get('userData') || empty;
 
 export const initialState = {
     id: id ? id :'no user id',
