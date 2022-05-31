@@ -2,7 +2,6 @@
   "name": "miranda-dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nandolt.github.io/miranda_dashboard",
   "babel": {
     "presets": [
       "@babel/react",

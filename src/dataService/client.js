@@ -23,9 +23,7 @@ client.interceptors.request.use(req => {
 
 
 client.interceptors.response.use(
-
     response => response,
-
     error => {
         return Promise.reject(error.response.data);
     }

@@ -2,6 +2,7 @@ import React,{ useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers, usersListData, inactiveEmployees,activeEmployees } from '../../features/users/usersSlice';
 import { UsersDataTable } from './UsersDataTable';
+import { DataTable } from  '../commons/DataTable';
 
 export const Users = () => {
 
@@ -34,7 +35,8 @@ export const Users = () => {
             <button onClick={ onlyInactive }>Show inactives</button>
             <button onClick={()=> ''}>+ New Employee</button>
 
-            <UsersDataTable userData={users}/>
+            {/* <UsersDataTable userData={users}/> */}
+            <DataTable tableInfo={users}/>
         </>
     )
 }
