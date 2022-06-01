@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App';
 import { BrowserRouter as Router } from 'react-router-dom';
-// import { HashRouter as Router } from 'react-router-dom'; //Use HashRouter to can deploy in gh pages
 import { Provider } from 'react-redux';
 import store from './app/store';
 

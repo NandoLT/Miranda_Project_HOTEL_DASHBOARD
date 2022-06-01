@@ -1,57 +1,54 @@
-import {booking_data as loadAllBookings} from '../../DataMocks/booking_data'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getBookings, getBooking } from '../../dataService/bookings/bookings';
 
-export const addBooking = (booking) => {
-    return {
-        type: 'bookings/addBooking',
-        payload: booking
-    }
+const initialState = {
+    bookingsList:[],
+    bookingsFiltereds:[],
+    status: 'idle'
 }
 
-export const removeBooking = (bookingId) => {
-    return {
-        type: 'bookings/removebooking',
-        payload: bookingId
+// Thunk functions
+export const fetchBookings = createAsyncThunk('get/allBookings', async () => {
+    const { data } = await getBookings();
+    return data.result;
+});
+
+export const fetchBooking = createAsyncThunk('get/singleBooking', async () => {
+    const response = await getBooking();
+    return response.data.result;
+});
+
+// Create Slice
+export const bookingsSlice = createSlice({
+    name: 'bookings', 
+    initialState,
+    reducers: {
+        inProgressBookings: (state) => {
+            state.bookingsFiltereds = state.bookingsList.filter(booking => booking.status === 'IN PROGRESS');
+        },
+        checkInBookings: (state) => {
+            state.bookingsFiltereds = state.bookingsList.filter(booking => booking.status === 'CHECK IN');
+        },
+        checkOutBookings: (state) => {
+            state.bookingsFiltereds = state.bookingsList.filter(booking => booking.status === 'CHECK OUT');
+        }
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchBookings.pending, (state, ) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchBookings.fulfilled, (state, action) => {
+                state.status = 'succes';
+                state.bookingsList = action.payload;
+                state.bookingsFiltereds = action.payload;
+            })
+            .addCase(fetchBookings.rejected, (state, ) => {
+                state.status = 'failed';
+            })
     }
-}
+});
 
-export const updateBooking = (booking) => {
-    return {
-        type: 'bookings/updateBooking',
-        payload: booking
-    }
-}
-
-export const allBookings = () => {
-    return {
-        type: 'bookings/allBookings',
-        payload: loadAllBookings
-    }
-}
-
-export const viewBooking = (bookingId) => {
-    return {
-        type: 'bookings/viewBooking',
-        payload: bookingId
-    }
-}
-
-const initialState = [];
-
-export const bookingsReducer = ( bookings = initialState, action ) => {
-    switch (action.type) {
-        case 'bookings/addBooking':
-            return [...bookings, action.payload];
-        case 'bookings/removeBooking':
-            return bookings.filter(booking => booking.id !== action.payload);
-        case 'bookings/updateBooking':
-            return [...bookings, action.payload];
-        case 'bookings/allBookings':
-            return [...bookings, action.apyload];
-        case 'bookings/viewBooking':
-            return bookings.filter(booking => booking.id === action.payload);
-        default:
-            return bookings
-    }
-}
-
-export const selectBookings = state => state.bookings;
+export const { inProgressBookings, checkInBookings, checkOutBookings } = bookingsSlice.actions;
+export const bookingsListData = (state) => state.bookings.bookingsFiltereds;
+export default bookingsSlice.reducer;

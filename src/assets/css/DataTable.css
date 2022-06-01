@@ -1,0 +1,72 @@
+.data-table{
+    border-radius: 10px;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    width: 100%;
+}
+.data-table thead tr {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.data-table tr {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.082);
+    text-transform: capitalize;
+    /* border: 1px solid black; */
+    /* padding: 5px; */
+}
+
+.data-table th, td {
+    padding: 15px;
+}
+
+.data-table tr:hover td{
+    background-color: #1358464b
+}
+
+/*BUTTONS AND FILTERS*/
+.btns-collection{
+    margin-bottom: 10px;
+}
+
+.btns-collection{
+    display: flex;
+    justify-content: space-between;
+}
+.button-filter {
+    background-color: transparent; 
+    border-bottom: 2px solid rgb(153, 153, 153);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: rgb(153, 153, 153);
+    font-size:medium;
+    padding: 10px 15px;
+    width: 200px
+}
+.button-filter:hover {
+    color: #135846;
+    border-bottom: 3px solid #135846;
+}
+
+.button-add-item {
+    background-color: #135846;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: medium;
+    margin-right: 10px;
+}
+.button-add-item:hover {
+    background-color: white;
+    color: #135846;
+    border: 1px solid #135846;
+}
+
+.select-order-filter{
+    border: 1px solid #135846;
+    color: #135846;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: medium;
+}

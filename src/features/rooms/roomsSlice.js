@@ -1,57 +1,54 @@
-import {rooms_data as loadAllRooms} from '../../DataMocks/rooms_data'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getRooms, getRoom } from '../../dataService/rooms/rooms';
 
-export const addRoom = (room) => {
-    return {
-        type: 'rooms/addRoom',
-        payload: room
-    }
+
+const initialState = {
+    roomsList: [],
+    roomsFiltereds: [],
+    status: 'idle'
 }
 
-export const removeRoom = (roomId) => {
-    return {
-        type: 'rooms/removeRoom',
-        payload: roomId
+// Thunk functions
+export const fetchRooms = createAsyncThunk('get/allRooms', async () => {
+    const { data } = await getRooms();
+    return data.result;
+});
+
+export const fetchRoom = createAsyncThunk('get/singleRooms', async () => {
+    const { data } = await getRoom();
+    return data.result;
+});
+
+
+// Create Slice
+
+export const roomsSlice = createSlice({
+    name: 'rooms',
+    initialState,
+    reducer:{
+        availableRooms: (state) => {
+            state.roomsFiltereds = state.roomsList.filter(room => room.status === 'AVAILABLE');
+        },
+        bookedRooms: (state) => {
+            state.roomsFiltereds = state.roomsList.filter(room => room.status === 'BOOKED');
+        },
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchRooms.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchRooms.fulfilled, (state, action) => {
+                state.status = 'succes';
+                state.roomsList = action.payload;
+                state.roomsFiltereds = action.payload;
+            })
+            .addCase(fetchRooms.rejected, (state) => {
+                state.status = 'failed';
+            })
     }
-}
+});
 
-export const updateRoom = (room) => {
-    return {
-        type: 'rooms/updateRoom',
-        payload: room
-    }
-}
-
-export const allRooms = () => {
-    return {
-        type: 'rooms/allRooms',
-        payload: loadAllRooms
-    }
-}
-
-export const viewRoom = (roomId) => {
-    return {
-        type: 'rooms/viewRoom',
-        payload: roomId
-    }
-}
-
-const initialState = [];
-
-export const roomsReducer = ( rooms = initialState, action ) => {
-    switch (action.type) {
-        case 'rooms/addRoom':
-            return [...rooms, action.payload];
-        case 'rooms/removeRoom':
-            return rooms.filter(room => room.id !== action.payload);
-        case 'rooms/updateRoom':
-            return [...rooms, action.payload];
-        case 'rooms/allRooms':
-            return [...rooms, action.apyload];
-        case 'rooms/viewRoom':
-            return rooms.filter(room => room.id === action.payload);
-        default:
-            return rooms
-    }
-}
-
-export const selectRooms = state => state.rooms;
+export const { availableRooms, bookedRooms } = roomsSlice.actions;
+export const roomsListData = (state) => state.rooms.roomsFiltereds;
+export default roomsSlice.reducer;
