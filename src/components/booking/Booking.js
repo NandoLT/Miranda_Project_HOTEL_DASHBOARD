@@ -48,13 +48,13 @@ export const Booking = () => {
             </div>
             <hr/>
             <div className="btns-collection">
-                <div classNames="btns-filter">
+                <div className="btns-filter">
                     <button className="button-filter" onClick={ allBookings }>All Bookings</button>
                     <button className="button-filter" onClick={ onlyInProgress }>Show In Progress</button>
                     <button className="button-filter" onClick={ onlyCheckIn }>Show Check In</button>
                     <button className="button-filter" onClick={ onlyCheckOut }>Show Check Out</button>
                 </div>
-                <div classNames="btns-actions">
+                <div className="btns-actions">
                     <button className="button-add-item" onClick={()=> ''}>+ New Employee</button>
                     <select className="select-order-filter">
                         <option value='1'>Newest</option>

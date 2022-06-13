@@ -3,7 +3,6 @@ import '../../assets/css/dashboardKpis.css';
 
 
 export const KpisItem = ({icon, dataInfo, dataType}) => {
-    console.log('ICON', icon)
     return (
         <div className="kpiItem">
             <div className="icon-kpi">

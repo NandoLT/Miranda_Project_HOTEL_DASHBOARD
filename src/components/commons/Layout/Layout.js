@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 
 import '../../../assets/css/Layout.css';
+import "../../../assets/css/lateralMenu.css";
 
 export const Layout = ({ children, ...props}) => {
     // console.log('PROPS LAYOUT', props);

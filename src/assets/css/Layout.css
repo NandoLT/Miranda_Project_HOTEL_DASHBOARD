@@ -4,6 +4,8 @@
     height: auto;
     position: sticky;
     top: 0;
+    padding: 0 5px 15px;
+    z-index: 1;
 }
 
 .layout-main {
@@ -19,9 +21,5 @@
     border-bottom-width: 1px;
     display: flex;
     height: 52px;
-    padding: 0 15px;
-}
-
-.layout-header {
     padding: 0 15px;
 }

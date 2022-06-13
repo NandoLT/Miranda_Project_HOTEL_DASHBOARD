@@ -50,39 +50,39 @@ function App() {
           <Routes>
               <Route 
                 path="/" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ Dashboard }  />}
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ Dashboard }  />}
               />
               
               <Route 
                 path="/booking" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ Booking } />} 
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ Booking } />} 
               />
               <Route 
                 path="/booking/:id" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ BookingDetail }  />} 
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ BookingDetail }  />} 
               />
               
               <Route 
                 path="/rooms" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ Rooms } /> } 
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ Rooms } /> } 
               />
               <Route 
                 path="/rooms/:id" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ RoomDetail }  /> } 
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ RoomDetail }  /> } 
               />
               
               <Route 
                 path="/users" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ Users }  /> } 
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ Users }  /> } 
               />
               <Route 
                 path="/users/:id" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ UserDetail }  /> } 
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ UserDetail }  /> } 
               />
               
               <Route 
                 path="/contact" 
-                element={ <PrivateRoute isLogged={ isLogged } component={ Contact }  /> }
+                element={ <PrivateRoute onLogOut={onLogOut} isLogged={ isLogged } component={ Contact }  /> }
               />
 
             <Route path="/login" element={ <Login isLogged= { isLogged } dispatch={ dispatch }/> } />

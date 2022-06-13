@@ -41,12 +41,12 @@ export const Rooms = () => {
             </div>
             <hr/>
             <div className="btns-collection">
-                <div classNames="btns-filter">
+                <div className="btns-filter">
                     <button className="button-filter" onClick={ allEmployees }>All Employees</button>
                     <button className="button-filter" onClick={ onlyActive }>Show Actives</button>
                     <button className="button-filter" onClick={ onlyInactive }>Show Inactives</button>
                 </div>
-                <div classNames="btns-actions">
+                <div className="btns-actions">
                     <button className="button-add-item" onClick={()=> ''}>+ New Employee</button>
                     <select className="select-order-filter">
                         <option value='1'>Newest</option>

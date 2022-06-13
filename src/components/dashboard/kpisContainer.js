@@ -5,6 +5,7 @@ import checkIn from '../../assets/images/check-in.svg';
 import nowBooking from '../../assets/images/room.svg';
 import scheduledRooms from '../../assets/images/appoinment.svg';
 import calendar from '../../assets/images/calendar.svg';
+import {v4 as uuid} from 'uuid';
 import '../../assets/css/dashboardKpis.css';
 
 export const KpisContainer = () => {
@@ -35,13 +36,12 @@ export const KpisContainer = () => {
             type: 'Check Out'
         },
     ]
-    console.log('DATA', dataInfo[0].icon)
     
     return (
             <div className="kpiContainer">
             {
                 dataInfo.map(item => {
-                    return (<KpisItem icon={item.icon} dataInfo={item.number} dataType={item.type}/>);
+                    return (<KpisItem key={uuid()} icon={item.icon} dataInfo={item.number} dataType={item.type}/>);
                 })
             }
             </div>

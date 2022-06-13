@@ -1,20 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button';
 import miranda_logo from '../../../assets/images/travl_icon.PNG';
 import AuthButton from '../AuthButton';
-import { authContext } from '../../../contexts/user.context';
+// import { authContext } from '../../../contexts/user.context';
 import contactIcon from '../../../assets/images/envelop.svg'
 import bookingIcon from '../../../assets/images/bell.svg'
 
 import '../../../assets/css/Header.css';
-
+import { LateralMenu } from '../LateralMenu';
+import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai'
 const Header = ({ className, isLogged, onLogOut, dispatch, ...props }) => {
 
-    const authData = useContext(authContext);
+    // const authData = useContext(authContext);
+    const [menuCollapse, setMenuCollapse] = useState(true)
 
-    console.log('AUTHDATA OK', authData);
+    const menuIconClick = () => {
+        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+    };
 
     return (
         <header className={classNames('header', className)} {...props}>
@@ -30,6 +34,13 @@ const Header = ({ className, isLogged, onLogOut, dispatch, ...props }) => {
             <nav className="header-nav">
                 {isLogged ? 
                 <>
+                    <div className="closemenu" onClick={menuIconClick}>
+                        {menuCollapse ? (
+                            <AiOutlineMenuUnfold/>
+                            ) : (
+                            <AiOutlineMenuFold/>
+                        )}
+                    </div>
                     {/* {
                         authData.auth ?
                         <h4>
@@ -37,7 +48,7 @@ const Header = ({ className, isLogged, onLogOut, dispatch, ...props }) => {
                         </h4> :
                         authData.name
                     } */}
-
+                    <LateralMenu menuCollapse={menuCollapse} menuIconClick={menuIconClick} />
                     <Button
                         as={Link}
                         to="/contact"

@@ -9,4 +9,5 @@ export default function parseAuthToken() {
     const base64 = base64Url.replace('-', '+').replace('_', '/');
     const tokenParsed = JSON.parse(window.atob(base64));
     storage.set('userData', tokenParsed.user);
+    return tokenParsed;
 }
